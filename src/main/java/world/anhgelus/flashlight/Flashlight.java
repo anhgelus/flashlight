@@ -8,7 +8,10 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import world.anhgelus.flashlight.events.TickEvents;
+import world.anhgelus.flashlight.keybinds.Keybinds;
 
 @Mod(
         modid = Flashlight.MOD_ID,
@@ -19,7 +22,7 @@ public class Flashlight {
 
     public static final String MOD_ID = "flashlight";
     public static final String MOD_NAME = "Flashlight";
-    public static final String VERSION = "0.0.1";
+    public static final String VERSION = "0.1.0";
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
@@ -41,7 +44,7 @@ public class Flashlight {
      */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        Keybinds.register();
     }
 
     /**
@@ -85,10 +88,7 @@ public class Flashlight {
          */
         @SubscribeEvent
         public static void addItems(RegistryEvent.Register<Item> event) {
-           /*
-             event.getRegistry().register(new ItemBlock(Blocks.myBlock).setRegistryName(MOD_ID, "myBlock"));
-             event.getRegistry().register(new MySpecialItem().setRegistryName(MOD_ID, "mySpecialItem"));
-            */
+
         }
 
         /**
@@ -96,18 +96,12 @@ public class Flashlight {
          */
         @SubscribeEvent
         public static void addBlocks(RegistryEvent.Register<Block> event) {
-           /*
-             event.getRegistry().register(new MySpecialBlock().setRegistryName(MOD_ID, "mySpecialBlock"));
-            */
+
+        }
+
+        @SubscribeEvent
+        public static void onTick(TickEvent.ClientTickEvent event) {
+            TickEvents.onTick();
         }
     }
-    /* EXAMPLE ITEM AND BLOCK - you probably want these in separate files
-    public static class MySpecialItem extends Item {
-
-    }
-
-    public static class MySpecialBlock extends Block {
-
-    }
-    */
 }
