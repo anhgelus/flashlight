@@ -1,0 +1,16 @@
+[
+    {
+        "modid": "flashlight",
+        "name": "Flashlight",
+        "description": "Add a flashlight to the player",
+        "version": "${version}",
+        "mcversion": "${mcversion}",
+        "url": "",
+        "updateUrl": "",
+        "authorList": ["Anhgelus Morhtuuzh"],
+        "credits": "",
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": []
+    }
+]
